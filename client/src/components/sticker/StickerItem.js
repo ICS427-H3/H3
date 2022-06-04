@@ -1,4 +1,6 @@
+import React from 'react';
 import Card from 'react-bootstrap/Card';
+import PropTypes from 'prop-types';
 
 function StickerItem(props) {
   return (
@@ -12,6 +14,10 @@ function StickerItem(props) {
     </Card.Body>
   </Card>
   );
+}
+
+StickerItem.propTypes = {
+  sticker: PropTypes.object.isRequired,
 }
 
 
