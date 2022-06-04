@@ -2,6 +2,8 @@ import React  from 'react';
 import './App.css';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
+import Signup from './components/user/Signup';
+import Signin from './components/user/Signin';
 import CreateSticker from './pages/CreateSticker';
 import Navigation from './components/Navigation';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,6 +18,8 @@ function App() {
           <Route exact path='/' element={<Home />}/>
           <Route exact path='/Shop' element={<Shop />}/>
           <Route exact path='/CreateSticker' element={<CreateSticker />}/>
+          <Route exact path='/Signup' element={<Signup />}></Route>
+          <Route exact path='/Signin' element={<Signin />}></Route>
         </Routes>
       </Router>
     </>

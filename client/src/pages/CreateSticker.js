@@ -9,6 +9,7 @@ function CreateSticker() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
+  const [image, setImage] = useState('');
   const [validated, setValidated] = useState(false);
 
   const addSticker = (event) => {
@@ -19,6 +20,7 @@ function CreateSticker() {
     }
 
     setValidated(true);
+    console.log(image);
     Axios.post('http://localhost:3001/create', {
       name: name,
       description: description,
@@ -54,6 +56,15 @@ function CreateSticker() {
             }}/>
             <Form.Control.Feedback type="invalid">
             Please enter the price!
+            </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="validationCustom03">
+            <Form.Label>Image</Form.Label>
+            <Form.Control required type="number" step="0.01" placeholder="Enter Image" onChange={(event) => {
+                setImage(event.target.value);
+            }}/>
+            <Form.Control.Feedback type="invalid">
+            Please enter an image!
             </Form.Control.Feedback>
         </Form.Group>
         <Button variant="primary" type="submit">
