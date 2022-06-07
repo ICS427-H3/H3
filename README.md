@@ -15,6 +15,6 @@ Assignment 2 Technical Portion
 
 3. Self-Reports
     - Everyone: worked on equal parts for Assignment 2's Report
-    - Michael Hui: 
+    - Michael Hui: started working on the server side of the project using MySQL Workbench
     - Timothy Huo: completed mock-ups for the Create Sticker page as well as the Sign-up/Log-in/Log-out pages
     - Marissa Halim: completed the mock-ups for the Home page and the Display Sticker page
