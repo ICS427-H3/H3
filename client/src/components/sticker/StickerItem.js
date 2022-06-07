@@ -12,6 +12,7 @@ function StickerItem(props) {
         Description: {props.sticker.description}
       </Card.Text>
     </Card.Body>
+    <Card.Img variant="bottom" src={props.sticker.image} />
   </Card>
   );
 }
@@ -19,6 +20,5 @@ function StickerItem(props) {
 StickerItem.propTypes = {
   sticker: PropTypes.object.isRequired,
 }
-
 
 export default StickerItem;

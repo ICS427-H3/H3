@@ -9,7 +9,7 @@ app.use(express.json());
 const db = mysql.createConnection({
     user: 'root',
     host: 'localhost',
-    password: 'password',
+    password: 'passwordMH',
     database: 'sticker_system',
 });
 
@@ -17,9 +17,10 @@ app.post('/create', (req, res) => {
     const name = req.body.name;
     const description = req.body.description;
     const price = req.body.price;
+    const image = req.body.image;
 
-    db.query("INSERT INTO stickers (name, description, price) VALUES (?, ?, ?)",
-    [name, description, price],
+    db.query("INSERT INTO stickers (name, description, price, image) VALUES (?, ?, ?, ?)",
+    [name, description, price, image],
     (err, result) => {
         if (err) {
             console.log(err)

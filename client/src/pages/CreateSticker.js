@@ -24,7 +24,8 @@ function CreateSticker() {
     Axios.post('http://localhost:3001/create', {
       name: name,
       description: description,
-      price: price
+      price: price,
+      image: image
     })};
 
   return (
@@ -60,7 +61,7 @@ function CreateSticker() {
         </Form.Group>
         <Form.Group className="mb-3" controlId="validationCustom03">
             <Form.Label>Image</Form.Label>
-            <Form.Control required type="number" step="0.01" placeholder="Enter Image" onChange={(event) => {
+            <Form.Control required type="text" placeholder="Enter Image URL" onChange={(event) => {
                 setImage(event.target.value);
             }}/>
             <Form.Control.Feedback type="invalid">

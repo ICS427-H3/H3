@@ -18,8 +18,10 @@ function Shop() {
   })
   return (
     <div>
-      {ready ? (<Container>
-        <Row xs={1} md={2} className="g-4">
+      {ready ? (
+      <Container>
+        <h1 className="p-5 text-center"> Stickers </h1>
+        <Row xs={1} md={4} className="g-4">
           {stickerList.map((val, key) =>
             <Col key={key}>
               <StickerItem sticker={val} />
