@@ -10,7 +10,7 @@ function Navigation () {
     return (
         <Navbar>
             <Container>
-                <p style={{ margin: 8 }}>Sticker Boiz</p>
+                <p style={{ margin: 8 }}>Sticky Boiz</p>
                 <Nav>
                     <NavLink as={Link} to='/'>Home</NavLink>
                     <NavLink as={Link} to='/Shop'>Shop</NavLink>
