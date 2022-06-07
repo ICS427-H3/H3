@@ -9,12 +9,18 @@ To run this project,
 Assignment 2 Technical Portion
 1. What's completed so far?
     - So far, we have divided the work evenly between the 3 members. Mock-ups for all the pages have been pushed and our environments are all set up. 
+    - Setup mySQL database and integrated it into our work flow 
 
 2. What's pending?
-    - Functionality for the front-end and back-end is still pending.
-
+Functionality for the front-end and back-end is still pending.
+    - Accounts
+    - View/update/insert/delete stickers
+    - Security measures (2FA)
+    - Implement storing items in a cart/wishlist 
+    - Purchasing
+    
 3. Self-Reports
     - Everyone: worked on equal parts for Assignment 2's Report
     - Michael Hui: started working on the server side of the project using MySQL Workbench
-    - Timothy Huo: completed mock-ups for the Create Sticker page as well as the Sign-up/Log-in/Log-out pages
-    - Marissa Halim: completed the mock-ups for the Home page and the Display Sticker page
+    - Timothy Huo: completed functionality for the Create Sticker page as well as the Sign-up/Log-in/Log-out pages
+    - Marissa Halim: completed the functionality for the Home page and the Display Sticker page
