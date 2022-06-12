@@ -19,7 +19,7 @@ app.post('/CreateSticker', (req, res) => {
     const price = req.body.price;
     const image = req.body.image;
 
-    db.query("INSERT INTO stickers (name, description, price, image) VALUES (?, ?, ?, ?)",
+    db.query("CALL`stickerecommerce`.`Insert_StickersTbl_Proc`(?, ?, ?, ?);",
     [name, description, price, image],
     (err, result) => {
         if (err) {
