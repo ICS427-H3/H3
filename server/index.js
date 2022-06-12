@@ -9,8 +9,8 @@ app.use(express.json());
 const db = mysql.createConnection({
     user: 'root',
     host: 'localhost',
-    password: 'passwordMH',
-    database: 'sticker_system',
+    password: 'Password123',
+    database: 'StickerEcommerce',
 });
 
 app.post('/create', (req, res) => {
