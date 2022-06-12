@@ -13,7 +13,7 @@ const db = mysql.createConnection({
     database: 'StickerEcommerce',
 });
 
-app.post('/create', (req, res) => {
+app.post('/CreateSticker', (req, res) => {
     const name = req.body.name;
     const description = req.body.description;
     const price = req.body.price;
@@ -30,8 +30,8 @@ app.post('/create', (req, res) => {
     });
 });
 
-app.get('/stickers', (req, res) => {
-    db.query("SELECT * FROM stickers", (err, result) => {
+app.get('/Shop', (req, res) => {
+    db.query("CALL `View_AllStickers_Proc`;", (err, result) => {
         if (err) {
             console.log(err);
         } else {
