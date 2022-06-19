@@ -49,6 +49,17 @@ app.post('/Signup', (req, res) => {
         });
 });
 
+app.get('/Signup', (req, res) => {
+    db.query("CALL `ComboBox_StatesTbl_Proc`;",
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result[0]);
+            }
+        });
+});
+
 app.post('/Signin', (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
@@ -56,7 +67,6 @@ app.post('/Signin', (req, res) => {
     db.query("CALL `Security_CheckLogin_Proc`(?, ?);",
         [email, password],
         (err, result) => {
-            console.log(result);
             if (err) {
                 console.log(err)
             } else {
@@ -70,7 +80,7 @@ app.get('/Shop', (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            res.send(result);
+            res.send(result[0]);
         }
     })
 })
