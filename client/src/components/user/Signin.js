@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
+import Axios from 'axios';
 
 function Signin() {
 
@@ -16,7 +17,12 @@ function Signin() {
       event.preventDefault();
       event.stopPropagation();
     }
+
     setValidated(true);
+    Axios.post('http://localhost:3001/Signin', {
+        email: email,
+        password: password,
+    })
 };
 
   return (

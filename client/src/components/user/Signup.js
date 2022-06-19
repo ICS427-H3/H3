@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
+import Axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -23,6 +24,14 @@ function Signup() {
       event.stopPropagation();
     }
     setValidated(true);
+    Axios.post('http://localhost:3001/Signup', {
+        name: name,
+        email: email,
+        password: password,
+        address: address,
+        zipcode: zipcode,
+        state: state,
+    })
 };
 
   return (

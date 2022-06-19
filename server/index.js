@@ -19,7 +19,7 @@ app.post('/CreateSticker', (req, res) => {
     const price = req.body.price;
     const image = req.body.image;
 
-    db.query("CALL`stickerecommerce`.`Insert_StickersTbl_Proc`(?, ?, ?, ?);",
+    db.query("CALL `Insert_StickersTbl_Proc`(?, ?, ?, ?);",
     [name, description, price, image],
     (err, result) => {
         if (err) {
@@ -28,6 +28,41 @@ app.post('/CreateSticker', (req, res) => {
             res.send("values inserted")
         }
     });
+});
+
+app.post('/Signup', (req, res) => {
+    const name = req.body.name;
+    const email = req.body.email;
+    const password = req.body.password;
+    const address = req.body.address;
+    const zipcode = req.body.zipcode;
+    const state = req.body.state;
+
+    db.query("CALL `Insert_UserInfo_Proc`(?, ?, ?, ?, ?, ?);",
+        [name, email, password, address, zipcode, state],
+        (err, result) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send("values inserted")
+            }
+        });
+});
+
+app.post('/Signin', (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    db.query("CALL `Security_CheckLogin_Proc`(?, ?);",
+        [email, password],
+        (err, result) => {
+            console.log(result);
+            if (err) {
+                console.log(err)
+            } else {
+                res.send("values inserted")
+            }
+        });
 });
 
 app.get('/Shop', (req, res) => {

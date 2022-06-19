@@ -12,7 +12,7 @@ function Shop() {
   const [stickerList, setStickerList] = useState([]);
   Axios.get('http://localhost:3001/Shop').then((response) => {
     if (stickerList.length === 0) {
-      setStickerList(response.data);
+      setStickerList(response.data[0]);
     }
     setReady(true);
   })

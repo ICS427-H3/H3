@@ -21,12 +21,13 @@ function CreateSticker() {
 
     setValidated(true);
     console.log(image);
-      Axios.post('http://localhost:3001/CreateSticker', {
+    Axios.post('http://localhost:3001/CreateSticker', {
       name: name,
       description: description,
       price: price,
       image: image
-    })};
+    })
+  };
 
   return (
   <Container>
