@@ -48,3 +48,18 @@ Assignment 3 Technical Portion
     - Timothy Huo: Worked on part 1 of Assignment 3 Report; Completed pages: sign-up/log-in, create stickers
     - Marissa Halim: Worked on part 2 of Assignment 3 Report
 
+Assignment 4 Technical Portion
+
+1. What's completed so far?
+    - Update Static and Dynamic Analysis tools 
+    - Completed Pages
+    - Created tables:
+    - Create store procedures:
+
+2. What's pending?
+    - 
+
+3. Self-Reports
+    - Michael Hui: 
+    - Timothy Huo: 
+    - Marissa Halim:
