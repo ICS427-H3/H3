@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 // import Button from 'react-bootstrap/esm/Button';
 import PropTypes from 'prop-types';
 
-function StickerItem(props) {
+function CartItem(props) {
   console.log(props.sticker);
   return (
     <>
@@ -19,10 +19,10 @@ function StickerItem(props) {
   );
 }
 
-StickerItem.propTypes = {
+CartItem.propTypes = {
   // sticker should be a object
   sticker: PropTypes.object.isRequired,
   // onAdd: PropTypes.func,
 }
 
-export default StickerItem;
+export default CartItem;

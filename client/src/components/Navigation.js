@@ -19,7 +19,7 @@ function Navigation() {
     const handleShow = () => setShow(true);
 
     return (
-        <Container>
+        <Container style={{ paddingTop: 15 }}>
             <h3 className="float-start"> Sticky Boiz </h3>
             <Button className="float-end" variant="light">
                 <Link to='/Cart'>
