@@ -3,7 +3,6 @@ import '../css/Navigation.css';
 import Button from 'react-bootstrap/esm/Button';
 import Container from "react-bootstrap/esm/Container";
 import Offcanvas from 'react-bootstrap/Offcanvas';
-// import Navbar from 'react-bootstrap/Navbar';
 import NavLink from 'react-bootstrap/NavLink';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -20,10 +19,12 @@ function Navigation() {
     const handleShow = () => setShow(true);
 
     return (
-        <Container style={{ paddingTop: 10 }}>
-            <NavLink as={Link} to='/' className="float-start"> Sticky Boiz </NavLink>
+        <Container>
+            <h3 className="float-start"> Sticky Boiz </h3>
             <Button className="float-end" variant="light">
-                <FiShoppingCart />
+                <Link to='/Cart'>
+                    <FiShoppingCart />
+                </Link>
             </Button>
             <Button className="float-end" variant="light" onClick={handleShow}>
                 <FiMenu />
@@ -46,16 +47,6 @@ function Navigation() {
                 </Offcanvas.Body>
             </Offcanvas>
         </Container>
-
-        // <Navbar>
-        //     <Container>
-        //         <p style={{ margin: 8 }}>Sticky Boiz</p>
-
-        //     </Container>
-        // </Navbar>
-
-        // <i class="bi bi-cart4"></i>
-        // <i class="bi bi-list"></i>
     );
 }
 

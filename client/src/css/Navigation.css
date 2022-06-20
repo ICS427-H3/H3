@@ -1,3 +1,4 @@
-button {
+button.float-end.btn.btn-light {
+    outline-color: transparent;
     background-color: transparent;
 }
