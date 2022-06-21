@@ -20,6 +20,7 @@ Assignment 2 Technical Portion
     - Timothy Huo: completed mock-ups for the Create Sticker page as well as the Sign-up/Log-in/Log-out pages
     - Marissa Halim: completed the mock-ups for the Home page and the Display Sticker page
 
+
 Assignment 3 Technical Portion
 1. What's completed so far?
     - Static and Dynamic Analysis tools are implemented
@@ -48,18 +49,22 @@ Assignment 3 Technical Portion
     - Timothy Huo: Worked on part 1 of Assignment 3 Report; Completed pages: sign-up/log-in, create stickers
     - Marissa Halim: Worked on part 2 of Assignment 3 Report
 
-Assignment 4 Technical Portion
 
+Assignment 4 Technical Portion
 1. What's completed so far?
     - Update Static and Dynamic Analysis tools 
     - Completed Pages
-    - Created tables:
-    - Create store procedures:
+    - Create/Completed store procedures:
+        - Security_CheckLogin_Proc
+        - Insert_CartTbl_proc
 
 2. What's pending?
-    - 
+    - Need to look into maintaining a user session (stay logged in)
+    - Need to finish functionality for add to cart
+    - Need to make quality life changes for all stored procedures
+    - Need to finish up quality of life changes for shop and hope page
 
 3. Self-Reports
-    - Michael Hui: 
+    - Michael Hui: Worked on storing user sign up in the database 
     - Timothy Huo: 
     - Marissa Halim:
