@@ -132,3 +132,29 @@ DELIMITER ;
 
 
 --------------------------------------------------------------------------
+USE `stickerecommerce`;
+DROP procedure IF EXISTS `stickerecommerce`.`View_AllStickers_Proc`;
+;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Insert_Carttbl_proc`(
+	UserID		int,
+    StickerID	int,
+    Quantity	int
+)
+BEGIN
+	INSERT INTO `stickerecommerce`.Carttbl (
+		StickerID,
+        UserID,
+        DateAdded,
+        Quantity
+    ) values (
+		StickerID,
+        UserID,
+        now(),
+        quantity
+    );
+    
+    
+END$$
+DELIMITER ;

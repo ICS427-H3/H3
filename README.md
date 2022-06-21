@@ -53,18 +53,22 @@ Assignment 3 Technical Portion
 Assignment 4 Technical Portion
 1. What's completed so far?
     - Update Static and Dynamic Analysis tools 
-    - Completed Pages
+    - In-Progress 
+        - Cart page
+        - Add to cart functionality
     - Create/Completed store procedures:
         - Security_CheckLogin_Proc
         - Insert_CartTbl_proc
 
 2. What's pending?
     - Need to look into maintaining a user session (stay logged in)
+    - Need to add purchase / check out feature to applicatiopn
     - Need to finish functionality for add to cart
     - Need to make quality life changes for all stored procedures
     - Need to finish up quality of life changes for shop and hope page
 
 3. Self-Reports
     - Michael Hui: Worked on storing user sign up in the database 
-    - Timothy Huo: 
-    - Marissa Halim:
+    - Timothy Huo: Updated dynamic and static analysis test cases
+    - Marissa Halim: Updated home page, nav bar, cart page is still in progress
+ 
