@@ -30,7 +30,7 @@ function CreateSticker() {
   };
 
   return (
-  <Container>
+  <Container style={{ paddingTop: 50 }}>
     <h3>Create Sticker</h3>
     <Form noValidate validated={validated} onSubmit={addSticker}>
         <Form.Group className="mb-3" controlId="validationCustom01">
