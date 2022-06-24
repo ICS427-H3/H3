@@ -62,22 +62,35 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Insert_UserInfo_Proc`(
     state varchar(20)
 )
 BEGIN
-	
-    Insert into stickerecommerce.userstbl (
-		username, 
-        useremail, 
-        userpassword, 
-        useraddress, 
-        zipcode, 
-        state
-    ) values (
-		name,
-        email,
-        sha2(password, 512),
-        address,
-        zipcode,
-        state
-    );
+	IF EXISTS (
+		SELECT UserEmail 
+        from stickerecommerce.userstbl 
+        where email = Useremail)
+    THEN
+		Select
+			0 As Status,
+            'Email already in use' As ErrorMessage;
+    ELSE
+		Insert into stickerecommerce.userstbl (
+			username, 
+			useremail, 
+			userpassword, 
+			useraddress, 
+			zipcode, 
+			state
+		) values (
+			name,
+			email,
+			sha2(password, 512),
+			address,
+			zipcode,
+			state
+		);
+    
+		Select 
+			1 as Status,
+            '' as ErrorMessage;
+    END IF;
     
 END$$
 DELIMITER ;
@@ -94,7 +107,6 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Security_CheckLogin_Proc`(
     password	varchar(100)
 )
 BEGIN
-	
     declare hashed varchar(300); 
     set hashed = (select SHA2(password, 512));
     
@@ -102,9 +114,13 @@ BEGIN
 				FROM `stickerecommerce`.`UsersTbl` 
 				where useremail = email and userpassword = hashed)
 	THEN
-		select 1 as Status;
+		Select
+			1 as Status,
+            '' as ErrorMessage;
 	ELSE 
-		select 0 as Status;	
+		Select
+			0 as Status,
+            'Incorrect Email or Password' as ErrorMessage;
     END IF;
     
 END$$
