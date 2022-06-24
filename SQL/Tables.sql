@@ -2,8 +2,8 @@
 SET SQL_SAFE_UPDATES = 0;
 
 
---------------------------------------------------------------------------
-Drop table if exists StickerEcommerce.`carttbl`
+
+Drop table if exists StickerEcommerce.`carttbl`;
 CREATE TABLE if not exists StickerEcommerce.`carttbl` (
   `StickerID` int NOT NULL,
   `UserID` int NOT NULL,
@@ -15,8 +15,8 @@ CREATE TABLE if not exists StickerEcommerce.`carttbl` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
---------------------------------------------------------------------------
-Drop table if exists StickerEcommerce.`statestbl`
+
+Drop table if exists StickerEcommerce.`statestbl`;
 CREATE TABLE if not exists StickerEcommerce.`statestbl` (
   `StateID` int NOT NULL AUTO_INCREMENT,
   `StateName` varchar(32) DEFAULT NULL,
@@ -80,8 +80,8 @@ VALUES ('Alabama', 'AL'),
        ('Wyoming', 'WY');
 
 
---------------------------------------------------------------------------
-Drop Table if exists StickerEcommerce.`stickers`
+
+Drop Table if exists StickerEcommerce.`stickers`;
 CREATE TABLE if not exists StickerEcommerce.`stickers` (
   `StickerID` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
@@ -92,8 +92,8 @@ CREATE TABLE if not exists StickerEcommerce.`stickers` (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
---------------------------------------------------------------------------
-Drop table if exists StickerEcommerce.`userstbl`
+
+Drop table if exists StickerEcommerce.`userstbl`;
 CREATE TABLE if not exists StickerEcommerce.`userstbl` (
   `UserID` int NOT NULL AUTO_INCREMENT,
   `Username` varchar(100) NOT NULL,
@@ -106,8 +106,8 @@ CREATE TABLE if not exists StickerEcommerce.`userstbl` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
---------------------------------------------------------------------------
-Drop Table if exists StickerEcommerce.`wishlisttbl`
+
+Drop Table if exists StickerEcommerce.`wishlisttbl`;
 CREATE TABLE if not exists StickerEcommerce.`wishlisttbl` (
   `StickerID` int NOT NULL,
   `UserID` int NOT NULL,
@@ -119,4 +119,3 @@ CREATE TABLE if not exists StickerEcommerce.`wishlisttbl` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
---------------------------------------------------------------------------

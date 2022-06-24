@@ -17,7 +17,7 @@ END$$
 DELIMITER ;
 
 
---------------------------------------------------------------------------
+
 USE `stickerecommerce`;
 DROP procedure IF EXISTS `stickerecommerce`.`Insert_StickersTbl_Proc`;
 ;
@@ -47,7 +47,7 @@ END$$
 DELIMITER ;
 
 
---------------------------------------------------------------------------
+
 USE `stickerecommerce`;
 DROP procedure IF EXISTS `stickerecommerce`.`Insert_UserInfo_Proc`;
 ;
@@ -96,7 +96,7 @@ END$$
 DELIMITER ;
 
 
---------------------------------------------------------------------------
+
 USE `stickerecommerce`;
 DROP procedure IF EXISTS `stickerecommerce`.`Security_CheckLogin_Proc`;
 ;
@@ -127,7 +127,7 @@ END$$
 DELIMITER ;
 
 
---------------------------------------------------------------------------
+
 USE `stickerecommerce`;
 DROP procedure IF EXISTS `stickerecommerce`.`View_AllStickers_Proc`;
 ;
@@ -147,7 +147,7 @@ END$$
 DELIMITER ;
 
 
---------------------------------------------------------------------------
+
 USE `stickerecommerce`;
 DROP procedure IF EXISTS `stickerecommerce`.`Insert_Carttbl_proc`;
 ;
