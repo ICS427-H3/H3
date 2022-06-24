@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import '../css/Navigation.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/esm/Button';
 import Container from "react-bootstrap/esm/Container";
 import Offcanvas from 'react-bootstrap/Offcanvas';
@@ -8,8 +9,8 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FiMenu } from "react-icons/fi";
 import { FiShoppingCart } from "react-icons/fi";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
+import { isSignedIn } from "./user/Signin";
 
 function Navigation() {
 
@@ -35,15 +36,22 @@ function Navigation() {
                     <Offcanvas.Title> Sticky Boiz Menu </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    <Nav className="flex-column">
-                        <NavLink as={Link} to='/'>Home</NavLink>
-                        <NavLink as={Link} to='/Shop'>Shop</NavLink>
-                        <NavLink as={Link} to='/CreateSticker'>Create Sticker</NavLink>
-                        <NavDropdown title="Login" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="/Signin">Sign In</NavDropdown.Item>
-                            <NavDropdown.Item href="/Signup">Sign Up</NavDropdown.Item>
-                        </NavDropdown>
-                    </Nav>
+                    {isSignedIn ? (
+                        <Nav className="flex-column">
+                            <NavLink as={Link} to='/'>Home</NavLink>
+                            <NavLink as={Link} to='/Shop'>Shop</NavLink>
+                            <NavLink as={Link} to='/CreateSticker'>Create Sticker</NavLink>
+                            <NavLink as={Link} to='/Signin'>Sign Out</NavLink>
+                        </Nav>
+                    ): (
+                        <Nav className="flex-column">
+                            <NavLink as={Link} to='/'>Home</NavLink>
+                            <NavDropdown title="Login" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="/Signin">Sign In</NavDropdown.Item>
+                                <NavDropdown.Item href="/Signup">Sign Up</NavDropdown.Item>
+                            </NavDropdown>
+                        </Nav>
+                        )}
                 </Offcanvas.Body>
             </Offcanvas>
         </Container>

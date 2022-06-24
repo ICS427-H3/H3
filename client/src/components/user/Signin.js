@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Axios from 'axios';
 
+export let isSignedIn = false;
+
 function Signin() {
 
   const [email, setEmail] = useState('');
@@ -11,10 +13,10 @@ function Signin() {
   const [validated, setValidated] = useState(false);
 
     const [loginStatus, setLoginStatus] = useState(false);
-    const [loginMessage, setLoginMessage] = useState('');
+    // const [loginMessage, setLoginMessage] = useState('');
 
   const addSticker = (event) => {
-    console.log(email + password);
+    console.log(event);
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -28,14 +30,30 @@ function Signin() {
         password: password,
    }).then((response) => {
        setLoginStatus(response.data[0].Status);
-       setLoginMessage(response.data[0].ErrorMessage);
+    //    setLoginMessage(response.data[0].ErrorMessage);
+        console.log(loginStatus);
+       if (loginStatus == 1) {
+        isSignedIn = true;
+       }
+       console.log(isSignedIn);
    })
 };
 
+
+    const signOut = () => {
+        isSignedIn = false;
+    }
+
   return (
   <Container>
-    <h3>Sign In</h3>
-    <Form noValidate validated={validated} onSubmit={addSticker}>
+    {isSignedIn ? (
+        <div>
+        <Button onClick={signOut}>
+            Sign Out
+        </Button>
+        </div>
+    ) : (
+        <Form noValidate validated={validated} onSubmit={addSticker}>
         <Form.Group className="mb-3" controlId="validationCustom02">
             <Form.Label>Email</Form.Label>
             <Form.Control required type="text" placeholder="Enter Email" onChange={(event) => {
@@ -58,6 +76,8 @@ function Signin() {
             Submit
         </Button>
     </Form>
+    )}
+
   </Container>
 
   );

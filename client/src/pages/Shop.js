@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/esm/Button';
 import StickerItem from '../components/sticker/StickerItem';
 import Card from 'react-bootstrap/Card';
 
-export let globalCartList;
+export let globalCartList = [];
 
 function Shop() {
 
