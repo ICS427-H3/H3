@@ -149,7 +149,7 @@ DELIMITER ;
 
 --------------------------------------------------------------------------
 USE `stickerecommerce`;
-DROP procedure IF EXISTS `stickerecommerce`.`View_AllStickers_Proc`;
+DROP procedure IF EXISTS `stickerecommerce`.`Insert_Carttbl_proc`;
 ;
 
 DELIMITER $$
