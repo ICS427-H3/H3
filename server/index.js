@@ -70,7 +70,9 @@ app.post('/Signin', (req, res) => {
             if (err) {
                 console.log(err)
             } else {
-                res.send("values inserted")
+                if (result[0]) {
+                    res.send(result[0]);
+                }
             }
         });
 });

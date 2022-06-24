@@ -10,6 +10,9 @@ function Signin() {
   const [password, setPassword] = useState('');
   const [validated, setValidated] = useState(false);
 
+    const [loginStatus, setLoginStatus] = useState(false);
+    const [loginMessage, setLoginMessage] = useState('');
+
   const addSticker = (event) => {
     console.log(email + password);
     const form = event.currentTarget;
@@ -18,11 +21,15 @@ function Signin() {
       event.stopPropagation();
     }
 
-    setValidated(true);
-    Axios.post('http://localhost:3001/Signin', {
+   setValidated(true);
+   event.preventDefault();
+   Axios.post('http://localhost:3001/Signin', {
         email: email,
         password: password,
-    })
+   }).then((response) => {
+       setLoginStatus(response.data[0].Status);
+       setLoginMessage(response.data[0].ErrorMessage);
+   })
 };
 
   return (
