@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 export let isSignedIn = false;
 
@@ -11,8 +12,8 @@ function Signin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [validated, setValidated] = useState(false);
+  const navigate = useNavigate();
 
-    const [loginStatus, setLoginStatus] = useState(false);
     // const [loginMessage, setLoginMessage] = useState('');
 
   const addSticker = (event) => {
@@ -29,32 +30,30 @@ function Signin() {
         email: email,
         password: password,
    }).then((response) => {
-       setLoginStatus(response.data[0].Status);
-    //    setLoginMessage(response.data[0].ErrorMessage);
-        console.log(loginStatus);
-       if (loginStatus == 1) {
+       if (response.data[0].Status == 1) {
         isSignedIn = true;
+        navigate("/");
        }
-       console.log(isSignedIn);
    })
 };
 
-
-    const signOut = () => {
-        isSignedIn = false;
+    const SignoutComponent = () => {
+        isSignedIn = false; 
+        window.location.reload();
     }
 
   return (
   <Container>
     {isSignedIn ? (
         <div>
-        <Button onClick={signOut}>
-            Sign Out
-        </Button>
+         <SignoutComponent/>
         </div>
     ) : (
         <Form noValidate validated={validated} onSubmit={addSticker}>
         <Form.Group className="mb-3" controlId="validationCustom02">
+            <br/>
+            <br/>
+            <h4>Sign In</h4>
             <Form.Label>Email</Form.Label>
             <Form.Control required type="text" placeholder="Enter Email" onChange={(event) => {
                 setEmail(event.target.value);
