@@ -1,27 +1,34 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-// import Button from 'react-bootstrap/esm/Button';
 import PropTypes from 'prop-types';
 
 function CartItem(props) {
-  console.log(props.sticker);
+  // console.log(props.cartItem);
   return (
     <>
       <Card.Body>
-      <Card.Title>{props.sticker.name}</Card.Title>
-      <Card.Subtitle className="mb-2 text-muted">Price: ${props.sticker.price}</Card.Subtitle>
-      <Card.Text>
-        Description: {props.sticker.description}
-      </Card.Text>
-    </Card.Body>
-    <Card.Img variant="bottom" src={props.sticker.image} />
+        <Card.Title>{props.cartItem.name}</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted"> ${props.cartItem.price} x {props.cartItem.qty} </Card.Subtitle>
+        <Card.Img variant="bottom" src={props.cartItem.image} />
+      </Card.Body>
     </>
+    // <>
+    //   <Card.Body>
+    //   <Card.Title>{props.cartItem.name}</Card.Title>
+    //   <Card.Subtitle className="mb-2 text-muted">Price: ${props.cartItem.price}</Card.Subtitle>
+    //   <Card.Text>
+    //     Description: {props.cartItem.description}
+    //     Quantity: {props.cartItem.qty}
+    //   </Card.Text>
+    // </Card.Body>
+    // <Card.Img variant="bottom" src={props.cartItem.image} />
+    // </>
   );
 }
 
 CartItem.propTypes = {
   // sticker should be a object
-  sticker: PropTypes.object.isRequired,
+  cartItem: PropTypes.object.isRequired,
   // onAdd: PropTypes.func,
 }
 

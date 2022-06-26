@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
 
 function StickerItem(props) {
-  console.log(props.sticker);
+  // console.log(props.sticker);
   return (
     <>
       <Card.Body>

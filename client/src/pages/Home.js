@@ -6,8 +6,8 @@ import Carousel from 'react-bootstrap/Carousel';
 function Home() {
 
   return (
-    <Container className="p-3 text-center" style={{ paddingTop: 15 }}>
-      <h1> Welcome to Sticky Boiz </h1>
+    <Container className="p-3 text-center">
+      <h1 style={{ paddingTop: 30 }}> Welcome to Sticky Boiz </h1>
       <p> We specialize in high-quality stickers of all designs. </p>
 
       <Carousel>

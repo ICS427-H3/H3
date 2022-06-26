@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/esm/Button';
 import StickerItem from '../components/sticker/StickerItem';
 import Card from 'react-bootstrap/Card';
 
-export let globalCartList;
+export let globalCartList = [];
 
 function Shop() {
 
@@ -51,8 +51,8 @@ function Shop() {
     // console.log(cartList);
   };
   globalCartList = cartList;
-  console.log(globalCartList);
-  console.log(cartList);
+  // console.log(globalCartList);
+  // console.log(cartList);
 
   // Axios.get('http://localhost:3001/Shop').then((response) => {
   //   if (stickerList.length === 0) {
