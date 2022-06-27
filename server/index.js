@@ -109,6 +109,22 @@ app.post('/Shop', (req, res) => {
     })
 })
 
+
+// Retrieve Stickers in Cart
+app.post('/Cart', (req, res) => {
+    const UserID = req.body.UserID;
+
+    db.query("CALL`View_UserCart_Proc`(?)",
+        [UserID],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result[0]);
+            }
+        })
+})
+
 app.listen(3001, () => {
     console.log('running on port 3001');
 })

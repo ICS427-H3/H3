@@ -36,7 +36,7 @@ function Navigation() {
                     <Offcanvas.Title> Sticky Boiz Menu </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    {isSignedIn ? (
+                    {isSignedIn.Status ? (
                         <Nav className="flex-column">
                             <NavLink as={Link} to='/'>Home</NavLink>
                             <NavLink as={Link} to='/Shop'>Shop</NavLink>

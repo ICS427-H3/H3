@@ -7,37 +7,17 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/esm/Button';
 import StickerItem from '../components/sticker/StickerItem';
 import Card from 'react-bootstrap/Card';
+import { isSignedIn } from "../components/user/Signin";
 
 export let globalCartList = [];
 
 function Shop() {
 
-  /*const stickerList = [
-    {
-      name: 'MacBook',
-      price: 1400,
-      image: 'https://picsum.photos/id/180/2400/1600',
-      description: "Nice"
-    },
-    {
-      name: 'Old Car',
-      price: 2400,
-      image: 'https://picsum.photos/id/111/4400/2656',
-      description: "Hello"
-    },
-    {
-      name: 'W Shoes',
-      price: 1000,
-      image: 'https://picsum.photos/id/21/3008/2008',
-      description: "Nice"
-    },
-  ]*/
-
     const [ready, setReady] = useState(false);
     const [stickerList, setStickerList] = useState([]);
     const onAdd = (sticker) => {
       Axios.post('http://localhost:3001/Shop', {
-          UserID: 1,
+          UserID: isSignedIn.UserID,
           StickerID: sticker.StickerID,
           Quantity: 1
       })
