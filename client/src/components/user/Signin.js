@@ -16,9 +16,10 @@ function Signin() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [validated, setValidated] = useState(false);
+    const navigate = useNavigate();
 
     const addSticker = (event) => {
-        console.log(email + password);
+        console.log(event);
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             event.preventDefault();
