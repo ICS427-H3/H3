@@ -184,15 +184,16 @@ DELIMITER ;
 USE `stickerecommerce`;
 DROP procedure IF EXISTS `stickerecommerce`.`View_UserCart_Proc`;
 ;
+DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `View_UserCart_Proc`(
-	UserID	int
+    UserID    int
 )
 sp: BEGIN
-	
+    
     IF NOT EXISTS( SELECT 1 FROM `stickerecommerce`.`carttbl` CTbl where CTbl.UserID = UserID)
     THEN
-		Select
-			'' AS StickerID,
+        Select
+            '' AS StickerID,
             '' AS name,
             '' AS price,
             '' AS description,
@@ -200,10 +201,10 @@ sp: BEGIN
             '' AS UserID,
             '' AS Quantity,
             '' AS DateAdded;
-		Leave sp;
+        Leave sp;
     ELSE
-		Select
-			Stbl.StickerID,
+        Select
+            Stbl.StickerID,
             Stbl.name,
             Stbl.price,
             Stbl.description,
@@ -211,11 +212,12 @@ sp: BEGIN
             UserID,
             Quantity,
             DateAdded
-		FROM `stickerecommerce`.`carttbl` Ctbl
+        FROM `stickerecommerce`.`carttbl` Ctbl
         INNER JOIN `stickerecommerce`.`stickers` Stbl ON
-			Ctbl.StickerID = Stbl.StickerID
-		Where Ctbl.UserID = UserID;
-		
+            Ctbl.StickerID = Stbl.StickerID
+        Where Ctbl.UserID = UserID;
+        
     END IF;
 
-END
+END$$
+DELIMITER ;
