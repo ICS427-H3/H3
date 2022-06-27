@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import '../css/Navigation.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/esm/Button';
 import Container from "react-bootstrap/esm/Container";
 import Offcanvas from 'react-bootstrap/Offcanvas';
@@ -8,8 +9,8 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FiMenu } from "react-icons/fi";
 import { FiShoppingCart } from "react-icons/fi";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
+import { isSignedIn } from "./user/Signin";
 
 function Navigation() {
 

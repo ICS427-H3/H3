@@ -46,7 +46,9 @@ function Signup() {
 
     return (
       <Container>
-        <h3>Sign Up</h3>
+        <br/>
+        <br/>
+        <h4>Sign Up</h4>
         <Form noValidate validated={validated} onSubmit={addSticker}>
             <Form.Group className="mb-3" controlId="validationCustom01">
                 <Form.Label>Name</Form.Label>

@@ -46,9 +46,16 @@ function Signin() {
 
   return (
   <Container>
-    <h3>Sign In</h3>
-    <Form noValidate validated={validated} onSubmit={addSticker}>
+    {isSignedIn ? (
+        <div>
+         <SignoutComponent/>
+        </div>
+    ) : (
+        <Form noValidate validated={validated} onSubmit={addSticker}>
         <Form.Group className="mb-3" controlId="validationCustom02">
+            <br/>
+            <br/>
+            <h4>Sign In</h4>
             <Form.Label>Email</Form.Label>
             <Form.Control required type="text" placeholder="Enter Email" onChange={(event) => {
                 setEmail(event.target.value);
@@ -70,6 +77,8 @@ function Signin() {
             Submit
         </Button>
     </Form>
+    )}
+
   </Container>
 
   );

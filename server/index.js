@@ -13,6 +13,7 @@ const db = mysql.createConnection({
     database: 'StickerEcommerce',
 });
 
+// Add sticker created to database
 app.post('/CreateSticker', (req, res) => {
     const name = req.body.name;
     const description = req.body.description;
@@ -30,6 +31,7 @@ app.post('/CreateSticker', (req, res) => {
     });
 });
 
+// Save User sign up data
 app.post('/Signup', (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
@@ -49,6 +51,7 @@ app.post('/Signup', (req, res) => {
         });
 });
 
+// Retrive Array for states sign up
 app.get('/Signup', (req, res) => {
     db.query("CALL `ComboBox_StatesTbl_Proc`;",
         (err, result) => {
@@ -60,6 +63,7 @@ app.get('/Signup', (req, res) => {
         });
 });
 
+// Check user sign in
 app.post('/Signin', (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
@@ -77,6 +81,7 @@ app.post('/Signin', (req, res) => {
         });
 });
 
+// Display Stickers to shop
 app.get('/Shop', (req, res) => {
     db.query("CALL `View_AllStickers_Proc`;", (err, result) => {
         if (err) {
@@ -86,7 +91,6 @@ app.get('/Shop', (req, res) => {
         }
     })
 })
-
 
 // Add sticker to cart
 app.post('/Shop', (req, res) => {

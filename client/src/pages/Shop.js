@@ -9,7 +9,7 @@ import StickerItem from '../components/sticker/StickerItem';
 import Card from 'react-bootstrap/Card';
 import { isSignedIn } from "../components/user/Signin";
 
-export let globalCartList;
+export let globalCartList = [];
 
 function Shop() {
 
@@ -23,24 +23,31 @@ function Shop() {
       })
     };
 
-  return (
-    <div>
-      {ready ? (
-      <Container style={{ paddingTop: 20 }}>
-        <h1 className="p-5 text-center"> Stickers </h1>
-        <Row xs={1} md={4} className="g-4">
-          {stickerList.map((val, key) =>
-            <Col key={key}>
-              <Card>
-                <StickerItem sticker={val}/>
-                <Button variant="success" className='float-end' onClick={() => onAdd(val)}>Add to Cart</Button>
-              </Card>
-            </Col>
-          )}
-        </Row>
-      </Container>) : (<p style={{ paddingTop: 50 }}>Loading Data</p>)}
-    </div>
-  );
+    Axios.get('http://localhost:3001/Shop').then((response) => {
+        if (stickerList.length === 0) {
+            setStickerList(response.data);
+        }
+        setReady(true);
+    })
+
+    return (
+        <div>
+          {ready ? (
+          <Container style={{ paddingTop: 20 }}>
+            <h1 className="p-5 text-center"> Stickers </h1>
+            <Row xs={1} md={4} className="g-4">
+              {stickerList.map((val, key) =>
+                <Col key={key}>
+                  <Card>
+                    <StickerItem sticker={val}/>
+                    <Button variant="success" className='float-end' onClick={() => onAdd(val)}>Add to Cart</Button>
+                  </Card>
+                </Col>
+              )}
+            </Row>
+          </Container>) : (<p style={{ paddingTop: 50 }}>Loading Data</p>)}
+        </div>
+    );
 }
 
 export default Shop;
