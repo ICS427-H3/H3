@@ -4,15 +4,14 @@ SET SQL_SAFE_UPDATES = 0;
 
 
 Drop table if exists StickerEcommerce.`carttbl`;
-CREATE TABLE if not exists StickerEcommerce.`carttbl` (
+CREATE TABLE `carttbl` (
   `StickerID` int NOT NULL,
   `UserID` int NOT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `description` varchar(200) DEFAULT NULL,
-  `price` decimal(5,2) DEFAULT NULL,
-  `DateAdded` datetime DEFAULT NULL,
+  `DateAdded` datetime NOT NULL,
+  `Quantity` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`StickerID`,`UserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 
 
@@ -108,14 +107,12 @@ CREATE TABLE if not exists StickerEcommerce.`userstbl` (
 
 
 Drop Table if exists StickerEcommerce.`wishlisttbl`;
-CREATE TABLE if not exists StickerEcommerce.`wishlisttbl` (
+CREATE TABLE `wishlisttbl` (
   `StickerID` int NOT NULL,
   `UserID` int NOT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `description` varchar(200) DEFAULT NULL,
-  `price` decimal(5,2) DEFAULT NULL,
-  `DateAdded` datetime DEFAULT NULL,
+  `DateAdded` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`StickerID`,`UserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 
