@@ -45,44 +45,44 @@ function Signin() {
         window.location.reload();
     }
 
-  return (
-  <Container>
-    {isSignedIn ? (
-        <div>
-         <SignoutComponent/>
-        </div>
-    ) : (
-        <Form noValidate validated={validated} onSubmit={addSticker}>
-        <Form.Group className="mb-3" controlId="validationCustom02">
-            <br/>
-            <br/>
-            <h4>Sign In</h4>
-            <Form.Label>Email</Form.Label>
-            <Form.Control required type="text" placeholder="Enter Email" onChange={(event) => {
-                setEmail(event.target.value);
-            }}/>
-            <Form.Control.Feedback type="invalid">
-                 Please enter your email!
-            </Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="validationCustom02">
-            <Form.Label>Password</Form.Label>
-            <Form.Control required aria-describedby="passwordHelpBlock" type="password" placeholder="Enter Password" onChange={(event) => {
-                setPassword(event.target.value);
-            }}/>
-            <Form.Control.Feedback type="invalid">
-                Invalid Password 
-            </Form.Control.Feedback>
-        </Form.Group>
-        <Button variant="primary" type="submit">
-            Submit
-        </Button>
-    </Form>
-    )}
+    return (
+        <Container>
+            {isSignedIn.Status ? (
+                <div>
+                    <SignoutComponent />
+                </div>
+            ) : (
+                <Form noValidate validated={validated} onSubmit={addSticker}>
+                    <Form.Group className="mb-3" controlId="validationCustom02">
+                        <br />
+                        <br />
+                        <h4>Sign In</h4>
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control required type="text" placeholder="Enter Email" onChange={(event) => {
+                            setEmail(event.target.value);
+                        }} />
+                        <Form.Control.Feedback type="invalid">
+                            Please enter your email!
+                        </Form.Control.Feedback>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="validationCustom02">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control required aria-describedby="passwordHelpBlock" type="password" placeholder="Enter Password" onChange={(event) => {
+                            setPassword(event.target.value);
+                        }} />
+                        <Form.Control.Feedback type="invalid">
+                            Invalid Password
+                        </Form.Control.Feedback>
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form>
+            )}
 
-  </Container>
+        </Container>
 
-  );
+    );
 }
 
 export default Signin;

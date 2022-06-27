@@ -108,18 +108,23 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Security_CheckLogin_Proc`(
 )
 BEGIN
     declare hashed varchar(300); 
+    Declare UserID INT;
     set hashed = (select SHA2(password, 512));
+    Set UserID =  (SELECT UT.UserID FROM `stickerecommerce`.`UsersTbl` UT
+				where useremail = email and userpassword = hashed);
     
-    IF EXISTS (SELECT userid 
+    IF EXISTS (SELECT 1 
 				FROM `stickerecommerce`.`UsersTbl` 
 				where useremail = email and userpassword = hashed)
-	THEN
+	THEN                
 		Select
 			1 as Status,
+            UserID,
             '' as ErrorMessage;
 	ELSE 
 		Select
 			0 as Status,
+            null as UserID,
             'Incorrect Email or Password' as ErrorMessage;
     END IF;
     
@@ -174,3 +179,43 @@ BEGIN
     
 END$$
 DELIMITER ;
+
+
+USE `stickerecommerce`;
+DROP procedure IF EXISTS `stickerecommerce`.`View_UserCart_Proc`;
+;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `View_UserCart_Proc`(
+	UserID	int
+)
+sp: BEGIN
+	
+    IF NOT EXISTS( SELECT 1 FROM `stickerecommerce`.`carttbl` CTbl where CTbl.UserID = UserID)
+    THEN
+		Select
+			'' AS StickerID,
+            '' AS name,
+            '' AS price,
+            '' AS description,
+            '' AS image,
+            '' AS UserID,
+            '' AS Quantity,
+            '' AS DateAdded;
+		Leave sp;
+    ELSE
+		Select
+			Stbl.StickerID,
+            Stbl.name,
+            Stbl.price,
+            Stbl.description,
+            Stbl.image,
+            UserID,
+            Quantity,
+            DateAdded
+		FROM `stickerecommerce`.`carttbl` Ctbl
+        INNER JOIN `stickerecommerce`.`stickers` Stbl ON
+			Ctbl.StickerID = Stbl.StickerID
+		Where Ctbl.UserID = UserID;
+		
+    END IF;
+
+END
