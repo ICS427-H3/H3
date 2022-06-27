@@ -35,15 +35,22 @@ function Navigation() {
                     <Offcanvas.Title> Sticky Boiz Menu </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    <Nav className="flex-column">
-                        <NavLink as={Link} to='/'>Home</NavLink>
-                        <NavLink as={Link} to='/Shop'>Shop</NavLink>
-                        <NavLink as={Link} to='/CreateSticker'>Create Sticker</NavLink>
-                        <NavDropdown title="Login" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="/Signin">Sign In</NavDropdown.Item>
-                            <NavDropdown.Item href="/Signup">Sign Up</NavDropdown.Item>
-                        </NavDropdown>
-                    </Nav>
+                    {isSignedIn.Status ? (
+                        <Nav className="flex-column">
+                            <NavLink as={Link} to='/'>Home</NavLink>
+                            <NavLink as={Link} to='/Shop'>Shop</NavLink>
+                            <NavLink as={Link} to='/CreateSticker'>Create Sticker</NavLink>
+                            <NavLink as={Link} to='/Signin'>Sign Out</NavLink>
+                        </Nav>
+                    ): (
+                        <Nav className="flex-column">
+                            <NavLink as={Link} to='/'>Home</NavLink>
+                            <NavDropdown title="Login" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="/Signin">Sign In</NavDropdown.Item>
+                                <NavDropdown.Item href="/Signup">Sign Up</NavDropdown.Item>
+                            </NavDropdown>
+                        </Nav>
+                        )}
                 </Offcanvas.Body>
             </Offcanvas>
         </Container>

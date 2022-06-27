@@ -87,6 +87,40 @@ app.get('/Shop', (req, res) => {
     })
 })
 
+
+// Add sticker to cart
+app.post('/Shop', (req, res) => {
+    const UserID = req.body.UserID;
+    const StickerID = req.body.StickerID;
+    const Quantity = req.body.Quantity;
+
+    db.query("CALL `Insert_Carttbl_proc`(?, ?, ?);",
+        [UserID, StickerID, Quantity],
+        (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send("values inserted");
+        }
+    })
+})
+
+
+// Retrieve Stickers in Cart
+app.post('/Cart', (req, res) => {
+    const UserID = req.body.UserID;
+
+    db.query("CALL`View_UserCart_Proc`(?)",
+        [UserID],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result[0]);
+            }
+        })
+})
+
 app.listen(3001, () => {
     console.log('running on port 3001');
 })

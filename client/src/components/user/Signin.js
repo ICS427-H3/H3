@@ -3,34 +3,46 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
+export let isSignedIn = {
+    Status: 0,
+    UserID: null,
+    ErrorMessage: '',
+};
 
 function Signin() {
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [validated, setValidated] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [validated, setValidated] = useState(false);
 
-    const [loginStatus, setLoginStatus] = useState(false);
-    const [loginMessage, setLoginMessage] = useState('');
+    const addSticker = (event) => {
+        console.log(email + password);
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
 
-  const addSticker = (event) => {
-    console.log(email + password);
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
+        setValidated(true);
+        event.preventDefault();
+        Axios.post('http://localhost:3001/Signin', {
+            email: email,
+            password: password,
+        }).then((response) => {
+            if (response.data[0].Status == 1) {
+                isSignedIn.Status = 1;
+                isSignedIn.UserID = response.data[0].UserID;
+                navigate("/");
+            }
+        })
+    };
+
+    const SignoutComponent = () => {
+        isSignedIn.Status = 0;
+        window.location.reload();
     }
-
-   setValidated(true);
-   event.preventDefault();
-   Axios.post('http://localhost:3001/Signin', {
-        email: email,
-        password: password,
-   }).then((response) => {
-       setLoginStatus(response.data[0].Status);
-       setLoginMessage(response.data[0].ErrorMessage);
-   })
-};
 
   return (
   <Container>
