@@ -159,21 +159,32 @@ DROP procedure IF EXISTS `stickerecommerce`.`Insert_Carttbl_proc`;
 
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Insert_Carttbl_proc`(
-	UserID		int,
-    StickerID	int,
-    Quantity	int
+	CartUserID		int,
+    CartStickerID	int,
+    CartQuantity	int
 )
-BEGIN
+sp: BEGIN
+	IF EXISTS (SELECT 1 FROM `stickerecommerce`.Carttbl WHERE UserID = CartUserID AND StickerID = CartStickerID)
+    THEN
+		UPDATE `stickerecommerce`.Carttbl
+        SET 
+			DateAdded = NOW(),
+            Quantity = Quantity + CartQuantity
+		WHERE UserID = CartUserID AND StickerID = CartStickerID;
+        
+		Leave sp;
+    END IF;
+
 	INSERT INTO `stickerecommerce`.Carttbl (
 		StickerID,
         UserID,
         DateAdded,
         Quantity
     ) values (
-		StickerID,
-        UserID,
+		CartStickerID,
+        CartUserID,
         now(),
-        quantity
+        CartQuantity
     );
     
     

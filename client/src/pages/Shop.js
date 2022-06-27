@@ -9,8 +9,6 @@ import StickerItem from '../components/sticker/StickerItem';
 import Card from 'react-bootstrap/Card';
 import { isSignedIn } from "../components/user/Signin";
 
-export let globalCartList = [];
-
 function Shop() {
 
     const [ready, setReady] = useState(false);
