@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import StickerItem from '../components/sticker/StickerItem';
+import CartItem from '../components/cart/CartItem'
 import Axios from 'axios';
 import { isSignedIn } from "../components/user/Signin";
-
+import { globalCartList } from './Shop';
 
 function Cart() {
 
@@ -24,16 +25,18 @@ function Cart() {
     return (
       <Container className="p-5 text-center">
         <h1 style={{ paddingTop: 10 }}> Your Sticker Cart </h1>
-        <Row xs={1} md={4} className="g-4">
-                {CartList.map((val, key) =>
-              <Col key={key}>
-                <Card>
-                  <StickerItem sticker={val}/>
-                </Card>
-              </Col>
-            )}
-          </Row>
-       </Container>
+        <Row xs={1} md={3} className="g-4" style={{ paddingTop: 40 }}>
+          {globalCartList.map((val, key) =>
+            <Col key={key}>
+              <Card>
+                <CartItem cartItem={val} />
+                <Button variant="danger" size="sm">Remove from Cart</Button>
+                {/* <Button variant="danger" size="sm" onClick={() => onRemove(val)}>Remove from Cart</Button> */}
+              </Card>
+            </Col>
+          )}
+        </Row>
+      </Container>
     );
 }
 
