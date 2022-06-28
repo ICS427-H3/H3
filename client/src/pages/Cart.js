@@ -7,7 +7,6 @@ import Card from 'react-bootstrap/Card';
 import CartItem from '../components/cart/CartItem'
 import Axios from 'axios';
 import { isSignedIn } from "../components/user/Signin";
-import { globalCartList } from './Shop';
 
 function Cart() {
 
@@ -26,7 +25,7 @@ function Cart() {
       <Container className="p-5 text-center">
         <h1 style={{ paddingTop: 10 }}> Your Sticker Cart </h1>
         <Row xs={1} md={3} className="g-4" style={{ paddingTop: 40 }}>
-          {globalCartList.map((val, key) =>
+          {CartList.map((val, key) =>
             <Col key={key}>
               <Card>
                 <CartItem cartItem={val} />
