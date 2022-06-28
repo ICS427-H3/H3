@@ -8,7 +8,7 @@ function CartItem(props) {
     <>
       <Card.Body>
         <Card.Title>{props.cartItem.name}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted"> ${props.cartItem.price} x {props.cartItem.qty} </Card.Subtitle>
+        <Card.Subtitle className="mb-2 text-muted"> ${props.cartItem.price} x {props.cartItem.Quantity} </Card.Subtitle>
         <Card.Img variant="bottom" src={props.cartItem.image} />
       </Card.Body>
     </>
