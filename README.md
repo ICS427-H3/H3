@@ -1,11 +1,23 @@
 
 # Sticker-Ecommerce
 
-To run this project, 
+To run this project, install these tools:
+ - Choice of IDE; Visual Studio Code is recommended
+ - git/GitHub Desktop
+ - MySQL Workbench & MySQL
+ - NodeJS & npm 
 
-1. First clone the project 
-2. Second cd into client folder and run 'npm install' 
-3. Third, to start the server run two terminals, one on client: 'npm start' and second one, server: 'node index.js' or 'npm run nodeStart'
+After everything is installed:
+1. clone the project
+2. cd into client folder and run 'npm install'
+3. to start the server, run two terminals
+    - In the first one, cd to client and run 'npm start'
+    - In the second one, cd to server and run 'npm start devStart'
+4. connect to the MySQL Workbench
+
+To uninstall this project, delete the folder from the computer locally. 
+
+-------------------------------------------------------------------------------------------
 
 Assignment 2 Technical Portion
 1. What's completed so far?
@@ -71,4 +83,4 @@ Assignment 4 Technical Portion
     - Michael Hui: Worked on storing user sign up in the database 
     - Timothy Huo: Updated dynamic and static analysis test cases
     - Marissa Halim: Updated home page, nav bar, cart page is still in progress
- 
+
